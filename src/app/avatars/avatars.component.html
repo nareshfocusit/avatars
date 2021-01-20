@@ -1,0 +1,41 @@
+<div class="container mt-5">
+    <div class="row m-0">
+        <div class="col-md-4">
+            <label for="">Current avatar</label>
+        </div>
+        <div class="col-md-8 pb-3">
+            <div>
+                <a [href]="currentAvatar" class="UserAvatar">
+                    <img [src]="currentAvatar" alt="" srcset="">
+                </a>
+            </div>
+            <a href="#" class="text-decoration-none">Upload an Avatar</a>
+        </div>
+    </div>
+    <div class="row m-0">
+        <div class="col-md-4">
+            Choose a collection
+        </div>
+        <div class="col-md-8">
+            <form>
+                <select (change)="onSelectCollection($event.target.value)">
+                    <option id="dropdown" [value]="item.id" *ngFor =" let item of collections">{{item.name}}</option>
+                </select>
+            </form>
+        </div>
+    </div>
+    <div class="row m-0 pt-3">
+        <div class="col-md-4">
+            <label for="Choose an avatar">Choose an avatar</label>
+        </div>
+        <div class="col-md-8 ">
+            <ul class="avatar-collection list-group list-group-horizontal">
+                <li class="list-group-item p-0 mr-2 b-0" *ngFor="let avatar of avatars">
+                    <a [href]="avatar.imgsrc" [title]="avatar.title">
+                        <img [src]="avatar.imgsrc" [alt]="avatar.title" (click)="selectAvatar($event)">
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
